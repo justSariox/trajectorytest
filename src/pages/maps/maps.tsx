@@ -15,26 +15,12 @@ export const Maps = () => {
         dispatch(fetchVehicles());
     }, []);
 
-    const content = (
-        <div>
-            <p>Content</p>
-            <p>Content</p>
-        </div>
-    );
 
     return (
         <div>
             <YMaps>
                     <Map width={'100%'} height={800} defaultState={{center: [59.753332, 30.621676], zoom: 7 }} >
-                        {vehicles.map(v => (
-                            <div title={v.name}>
-                                <Tooltip title={v.name}>
-                                    <Placemark key={v.id} geometry={getCoordinates(v)} />
-                                </Tooltip>
-
-                            </div>
-
-                        ))}
+                        {vehicles.map(v => <Placemark key={v.id} geometry={getCoordinates(v)} />)}
                     </Map>
             </YMaps>
         </div>
